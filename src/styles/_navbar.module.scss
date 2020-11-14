@@ -1,0 +1,28 @@
+@import "./utilities.module";
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 8vh;
+  background: transparent;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+
+  &_logo {
+    margin: 1.6rem;
+    grid-column: 1/2;
+    justify-self: end;
+    align-self: center;
+    height: 48px;
+  }
+
+  &_menu {
+    grid-column: 8/9;
+    align-self: center;
+
+    &__img {
+      height: 48px;
+    }
+  }
+}

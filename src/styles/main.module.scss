@@ -1,6 +1,8 @@
 //Base & Utilities
-@import "./_base.module";
-@import "./_utilities.module";
+@import "./base.module";
+@import "./utilities.module";
 
 //Pages
-@import "./_home.module";
+@import "./home.module";
+@import "./navbar.module";
+@import "./footer.module";

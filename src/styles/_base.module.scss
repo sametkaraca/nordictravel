@@ -1,0 +1,26 @@
+@import "../styles/utilities.module";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", serif;
+  font-size: 1.2rem;
+  color: $color-bianca;
+}
+
+h1 {
+  font-size: 4.2rem;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}

@@ -3,12 +3,13 @@ import style from "../../styles/_home.module.scss";
 import playIcon from "../../assets/play.svg";
 
 export const HomeCountry = ({ image }) => {
+  console.log(image);
   return (
     <section className={style.home_country}>
       <picture className={style.home_country__picture}>
-        {/* <source srcSet={sametXXL} media="(min-width: 1200px)" />
-          <source srcSet={sametXL} media="(min-width: 768px)" />
-          <source srcSet={sametMD} media="(min-width: 540px)" /> */}
+        {/* <source srcSet={imageMD} media="(min-width: 1200px)" />
+        <source srcSet={imageMD} media="(min-width: 768px)" />
+        <source srcSet={imageMD} media="(min-width: 540px)" /> */}
         <img
           srcSet={image}
           alt="Samet Banner"

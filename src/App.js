@@ -6,8 +6,8 @@ import { Footer } from "./pages/Footer";
 export const App = () => {
   return (
     <>
+      <NavBar />
       <Pages />
-      <Footer />
     </>
   );
 };

@@ -1,0 +1,15 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  background: black;
+  height: 6vh;
+
+  &_icon_up {
+    grid-column: 2/3;
+    color: red;
+  }
+  &_icon_down {
+    grid-column: 3/4;
+    color: blue;
+  }
+}

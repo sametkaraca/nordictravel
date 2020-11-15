@@ -1,26 +1,29 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination } from "swiper";
 import "swiper/swiper.scss";
 import { HomeCountry } from "./HomeCountry";
 import style from "../../styles/_home.module.scss";
+import "swiper/components/pagination/pagination.scss";
 import norwayImgSM from "../../assets/wallpapers/norway.png";
 import swedenImgSM from "../../assets/wallpapers/sweden.png";
 import finlandImgSM from "../../assets/wallpapers/finland.png";
 import estoniaImgSM from "../../assets/wallpapers/estonia.png";
 import icelandImgSM from "../../assets/wallpapers/iceland.png";
 import denmarkImgSM from "../../assets/wallpapers/denmark.png";
-import { NavBar } from "../NavBar";
+
+SwiperCore.use([Pagination]);
 
 export const Home = () => {
   return (
     <>
-      <NavBar />
-
       <section className={style.home}>
         <Swiper
           className={style.home_swiper}
           spaceBetween={0}
           slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >

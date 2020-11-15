@@ -1,6 +1,12 @@
 @import "./base.module";
 @import "./utilities.module";
-@import "./utilities.module";
+:root {
+  --swiper-theme-color: red;
+}
+
+// .home_swiper {
+//   margin-bottom: -4px;
+// }
 
 .home_country {
   &_container {
@@ -11,20 +17,55 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 8vh;
+    top: 10vh;
     // opacity: 1;
     user-select: none;
 
     &__title {
       grid-column: 2/5;
-      grid-row: 3/5;
+      grid-row: 2/3;
       color: $color-alizarin;
     }
 
     &__content {
-      margin-top: 1rem;
+      margin: 2rem 0;
       grid-column: 2/5;
-      grid-row: 5/8;
+      grid-row: 3/6;
+    }
+
+    &__button {
+      grid-column: 2/4;
+      grid-row: 7/8;
+      justify-self: start;
+      align-self: center;
+      padding: 1rem;
+      background-color: $color-alizarin;
+      border: none;
+      color: white;
+    }
+
+    &__info {
+      grid-column: 4/6;
+      grid-row: 7/8;
+      justify-self: start;
+      align-self: center;
+    }
+    &__play {
+      grid-column: 2/3;
+      grid-row: 10/11;
+      justify-self: start;
+      align-self: center;
+
+      &__img {
+        height: 48px;
+      }
+    }
+    &__watch {
+      margin-left: 1.2rem;
+      grid-column: 3/5;
+      grid-row: 10/11;
+      justify-self: start;
+      align-self: center;
     }
   }
 }

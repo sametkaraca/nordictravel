@@ -3,7 +3,6 @@ import style from "../../styles/_home.module.scss";
 import playIcon from "../../assets/play.svg";
 
 export const HomeCountry = ({ image }) => {
-  console.log(image);
   return (
     <section className={style.home_country}>
       <picture className={style.home_country__picture}>

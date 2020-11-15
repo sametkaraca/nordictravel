@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
 import "swiper/swiper.scss";
@@ -30,8 +30,59 @@ import denmarkImgXL from "../../assets/wallpapers/denmark@x3.jpg";
 SwiperCore.use([Pagination]);
 
 export const Home = () => {
+  const size = useWindowSize();
+
+  function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+
+      window.addEventListener("resize", handleResize);
+
+      handleResize();
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowSize;
+  }
+
+  const imagesSM = [
+    norwayImgSM,
+    swedenImgSM,
+    finlandImgSM,
+    estoniaImgSM,
+    icelandImgSM,
+    denmarkImgSM,
+  ];
+  const imagesMD = [
+    norwayImgMD,
+    swedenImgMD,
+    finlandImgMD,
+    estoniaImgMD,
+    icelandImgMD,
+    denmarkImgMD,
+  ];
+  const imagesXL = [
+    norwayImgXL,
+    swedenImgXL,
+    finlandImgXL,
+    estoniaImgXL,
+    icelandImgXL,
+    denmarkImgXL,
+  ];
   return (
     <>
+      {console.log(size.width)}
       <section className={style.home}>
         <Swiper
           className={style.home_swiper}
@@ -42,43 +93,16 @@ export const Home = () => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={norwayImgSM}
-              imageMD={norwayImgMD}
-            />
-          </SwiperSlide>
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={swedenImgSM}
-            />
-          </SwiperSlide>
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={finlandImgSM}
-            />
-          </SwiperSlide>
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={estoniaImgSM}
-            />
-          </SwiperSlide>
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={icelandImgSM}
-            />
-          </SwiperSlide>
-          <SwiperSlide className={style.home_swiper_slide}>
-            <HomeCountry
-              className={style.home_swiper_slide__img}
-              image={denmarkImgSM}
-            />
-          </SwiperSlide>
+          {imagesSM.map((imageSM) => {
+            return (
+              <SwiperSlide className={style.home_swiper_slide}>
+                <HomeCountry
+                  className={style.home_swiper_slide__img}
+                  image={imageSM}
+                />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </section>
     </>

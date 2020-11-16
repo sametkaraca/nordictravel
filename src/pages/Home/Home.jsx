@@ -29,6 +29,31 @@ import denmarkImgXL from "../../assets/wallpapers/denmark@x3.jpg";
 
 SwiperCore.use([Pagination]);
 
+const imagesSM = [
+  norwayImgSM,
+  swedenImgSM,
+  finlandImgSM,
+  estoniaImgSM,
+  icelandImgSM,
+  denmarkImgSM,
+];
+const imagesMD = [
+  norwayImgMD,
+  swedenImgMD,
+  finlandImgMD,
+  estoniaImgMD,
+  icelandImgMD,
+  denmarkImgMD,
+];
+const imagesXL = [
+  norwayImgXL,
+  swedenImgXL,
+  finlandImgXL,
+  estoniaImgXL,
+  icelandImgXL,
+  denmarkImgXL,
+];
+
 export const Home = () => {
   const size = useWindowSize();
 
@@ -56,33 +81,9 @@ export const Home = () => {
     return windowSize;
   }
 
-  const imagesSM = [
-    norwayImgSM,
-    swedenImgSM,
-    finlandImgSM,
-    estoniaImgSM,
-    icelandImgSM,
-    denmarkImgSM,
-  ];
-  const imagesMD = [
-    norwayImgMD,
-    swedenImgMD,
-    finlandImgMD,
-    estoniaImgMD,
-    icelandImgMD,
-    denmarkImgMD,
-  ];
-  const imagesXL = [
-    norwayImgXL,
-    swedenImgXL,
-    finlandImgXL,
-    estoniaImgXL,
-    icelandImgXL,
-    denmarkImgXL,
-  ];
-  return (
-    <>
-      {console.log(size.width)}
+  if (size.width < 1024 && size.width >= 540) {
+    //MD
+    return (
       <section className={style.home}>
         <Swiper
           className={style.home_swiper}
@@ -93,18 +94,72 @@ export const Home = () => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {imagesSM.map((imageSM) => {
+          {imagesMD.map((imageMD, index) => {
             return (
-              <SwiperSlide className={style.home_swiper_slide}>
+              <SwiperSlide key={index} className={style.home_swiper_slide}>
                 <HomeCountry
                   className={style.home_swiper_slide__img}
-                  image={imageSM}
+                  image={imageMD}
                 />
               </SwiperSlide>
             );
           })}
         </Swiper>
       </section>
-    </>
+    );
+  }
+
+  if (size.width < 1920) {
+    //XL
+    return (
+      <section className={style.home}>
+        <Swiper
+          className={style.home_swiper}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {imagesXL.map((imageXL, index) => {
+            return (
+              <SwiperSlide key={index} className={style.home_swiper_slide}>
+                <HomeCountry
+                  className={style.home_swiper_slide__img}
+                  image={imageXL}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </section>
+    );
+  }
+
+  return (
+    //XS
+    <section className={style.home}>
+      <Swiper
+        className={style.home_swiper}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {imagesSM.map((imageSM, index) => {
+          return (
+            <SwiperSlide key={index} className={style.home_swiper_slide}>
+              <HomeCountry
+                className={style.home_swiper_slide__img}
+                image={imageSM}
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </section>
   );
 };

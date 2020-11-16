@@ -109,7 +109,7 @@ export const Home = () => {
     );
   }
 
-  if (size.width < 1920) {
+  if (size.width < 3200) {
     //XL
     return (
       <section className={style.home}>

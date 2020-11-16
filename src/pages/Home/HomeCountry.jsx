@@ -21,8 +21,9 @@ export const HomeCountry = ({ image }) => {
 
       <div className={style.home_country_container}>
         <h1 className={style.home_country_container__title}>
-          Best of <br />
-          Norway
+          Wonders
+          <br />
+          of Norway
         </h1>
         <p className={style.home_country_container__content}>
           Behold the cacophony of bazaars and the shimmering sahara when you

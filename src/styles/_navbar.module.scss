@@ -17,13 +17,31 @@
     height: 48px;
   }
 
-  &_menu {
+  &_icon {
+    z-index: 4;
     grid-column: 8/9;
     align-self: center;
     margin: 1.6rem;
 
     &__img {
       height: 48px;
+    }
+  }
+
+  &_menu {
+    z-index: 3;
+    position: fixed;
+    background: black;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(0 at 90% -10%);
+    -webkit-clip-path: circle(0 at 90% -10%);
+    transition: all 0.8s ease-out;
+
+    &.open {
+      clip-path: circle(1000px at 100% 0%);
+      -webkit-clip-path: circle(1000px at 100% 0%);
     }
   }
 }

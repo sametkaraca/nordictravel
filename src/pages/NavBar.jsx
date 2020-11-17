@@ -20,10 +20,10 @@ export const NavBar = () => {
       <ul className={[style.nav_menu, isOpenClass].join(" ")}>
         {navItems.map((item) => {
           return (
-            <li key={item}>
+            <li key={item} className={style.nav_menu_list}>
               <a
                 href={item}
-                className={style.nav_menu_item}
+                className={style.nav_menu_list_item}
                 onClick={() => setIsOpen(false)}
               >
                 {item}

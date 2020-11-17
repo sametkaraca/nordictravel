@@ -4,16 +4,12 @@ import playIcon from "../../assets/play.svg";
 
 import twitterIcon from "../../assets/twitter.svg";
 import facebookIcon from "../../assets/facebook.svg";
-
-export const HomeCountry = ({ image }) => {
+export const HomeCountry = (props) => {
   return (
     <section className={style.home_country}>
       <picture className={style.home_country__picture}>
-        {/* <source srcSet={imageMD} media="(min-width: 1200px)" />
-        <source srcSet={imageMD} media="(min-width: 768px)" />
-        <source srcSet={imageMD} media="(min-width: 540px)" /> */}
         <img
-          srcSet={image}
+          srcSet={props.image}
           alt="Samet Banner"
           className={style.home_country__picture__img}
         />
@@ -23,14 +19,9 @@ export const HomeCountry = ({ image }) => {
         <h1 className={style.home_country_container__title}>
           Wonders
           <br />
-          of Norway
+          Default
         </h1>
-        <p className={style.home_country_container__content}>
-          Behold the cacophony of bazaars and the shimmering sahara when you
-          journey to Morocco’s charming cities of Casablanca, Fes and Marrakesh,
-          including visits to the life-giving oasis of Tinghir, Todra Gorge and
-          Ouarzazate
-        </p>
+        <p className={style.home_country_container__content}>default</p>
         <button className={style.home_country_container__button}>
           Book Now
         </button>

@@ -6,25 +6,9 @@ import { HomeCountry } from "./HomeCountry";
 import style from "../../styles/_home.module.scss";
 import "swiper/components/pagination/pagination.scss";
 
-import norwayImgMD from "../../assets/wallpapers/norway@x2.jpg";
-import swedenImgMD from "../../assets/wallpapers/sweden@x2.jpg";
-import finlandImgMD from "../../assets/wallpapers/finland@x2.jpg";
-import estoniaImgMD from "../../assets/wallpapers/estonia@x2.jpg";
-import icelandImgMD from "../../assets/wallpapers/iceland@x2.jpg";
-import denmarkImgMD from "../../assets/wallpapers/denmark@x2.jpg";
-
-const imagesMD = [
-  norwayImgMD,
-  swedenImgMD,
-  finlandImgMD,
-  estoniaImgMD,
-  icelandImgMD,
-  denmarkImgMD,
-];
-
 SwiperCore.use([Pagination]);
 
-export const HomeMD = () => {
+export const HomeMD = ({ countries }) => {
   return (
     <section className={style.home}>
       <Swiper
@@ -36,12 +20,15 @@ export const HomeMD = () => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {imagesMD.map((imageMD, index) => {
+        {countries.map((country) => {
+          const { id, title, info, image_md } = country;
           return (
-            <SwiperSlide key={index} className={style.home_swiper_slide}>
+            <SwiperSlide key={id} className={style.home_swiper_slide}>
               <HomeCountry
                 className={style.home_swiper_slide__img}
-                image={imageMD}
+                title={title}
+                info={info}
+                image={image_md}
               />
             </SwiperSlide>
           );

@@ -4,12 +4,14 @@ import playIcon from "../../assets/play.svg";
 
 import twitterIcon from "../../assets/twitter.svg";
 import facebookIcon from "../../assets/facebook.svg";
-export const HomeCountry = (props) => {
+
+export const HomeCountry = ({ title, info, image }) => {
+  console.log(image);
   return (
     <section className={style.home_country}>
       <picture className={style.home_country__picture}>
         <img
-          srcSet={props.image}
+          src={image}
           alt="Samet Banner"
           className={style.home_country__picture__img}
         />
@@ -19,9 +21,9 @@ export const HomeCountry = (props) => {
         <h1 className={style.home_country_container__title}>
           Wonders
           <br />
-          Default
+          {title}
         </h1>
-        <p className={style.home_country_container__content}>default</p>
+        <p className={style.home_country_container__content}>{info}</p>
         <button className={style.home_country_container__button}>
           Book Now
         </button>
